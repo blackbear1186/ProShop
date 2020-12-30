@@ -2,3 +2,11 @@ main {
   /* Move footer down to bottom of page */
   min-height: 80vh;
 }
+/* Give spacing to price*/
+h3 {
+  padding: 1rem 0;
+}
+/* Give rating spacing */
+.rating span {
+  margin: 0 0.1rem;
+}

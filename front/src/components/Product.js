@@ -11,10 +11,12 @@
   10. Inside div put {product.rating} from {product.numReviews} reviews
   11. Add new Card.Text as h3
   12. Add dollar sign {product.price} inside Card.Text
+  13. Import ./Rating
+  14. Replace product rating and numReview with Rating Tag value={product.rating} text={`${product.numReview} reviews`}
 */
 // import { Link } from 'react-router-dom'
 import { Card } from 'react-bootstrap'
-// import Rating from './Rating'
+import Rating from './Rating'
 
 const Product = ({product}) => {
   return (
@@ -29,10 +31,10 @@ const Product = ({product}) => {
             <strong>{product.name}</strong>
           </Card.Title>
         </a>
-        
+
         <Card.Text as='div'>
           <div className='my-3'>
-            {product.rating} from {product.numReviews}
+            <Rating value={product.rating} text={`${product.numReviews} reviews`}></Rating>
           </div>
         </Card.Text>
 

@@ -10,6 +10,8 @@
   9. set columns to sm={12} md={6} lg={4} xl={3} as class
   10. Import Product from ../components/Product
   11. Replace h3 with Product tag and product={product} from map array
+  12. Coming From Product -> add key={product._id} after Col
+  13. Go to index.css
 */
 import React from 'react'
 import { Row, Col } from 'react-bootstrap'
@@ -22,7 +24,7 @@ const HomeScreen = () => {
       <h2>Latest Products</h2>
       <Row>
         {products.map(product => (
-          <Col sm={12} md={6} lg={4} xl={3}>
+          <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
             <Product product={product}/>
           </Col>
         ))}

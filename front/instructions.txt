@@ -1,0 +1,7 @@
+ # Folders Added
+ # Files in the same folder have one dot ./ 
+1. component->Header.js, Footer.js
+2. images
+3. screens->HomeScreen.js
+4. components->Product.js
+5. components->Rating.js
