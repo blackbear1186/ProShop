@@ -13,24 +13,27 @@
   12. Add dollar sign {product.price} inside Card.Text
   13. Import ./Rating
   14. Replace product rating and numReview with Rating Tag value={product.rating} text={`${product.numReview} reviews`}
+  15. Import { Link } from 'react-router-dom'
+  16. Replace a href= with Link to= to speed up load page time
 */
 // import { Link } from 'react-router-dom'
 import { Card } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import Rating from './Rating'
 
 const Product = ({product}) => {
   return (
     <Card className='my-3 p-3 rounded'>
-      <a href={`/product/${product._id}`}>
+      <Link to={`/product/${product._id}`}>
         <Card.Img variant='top' src={product.image}/>
-      </a>
+      </Link>
 
       <Card.Body>
-        <a href={`/product/${product._id}`}>
+        <Link to={`/product/${product._id}`}>
           <Card.Title as='div'>
             <strong>{product.name}</strong>
           </Card.Title>
-        </a>
+        </Link>
 
         <Card.Text as='div'>
           <div className='my-3'>

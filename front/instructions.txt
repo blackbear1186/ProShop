@@ -5,3 +5,5 @@
 3. screens->HomeScreen.js
 4. components->Product.js
 5. components->Rating.js
+6. Install react-router-dom and react-router-bootstrap
+7. screens->ProductScreen.js
