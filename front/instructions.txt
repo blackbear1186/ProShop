@@ -7,3 +7,9 @@
 5. components->Rating.js
 6. Install react-router-dom and react-router-bootstrap
 7. screens->ProductScreen.js
+8. Create backend folder
+9. From the root type npm init to create package.json for backend
+10. From root npm i express
+11. Create server.js in backend folder
+12. Create data folder in backend
+13. Copy and paste products.js into data folder
