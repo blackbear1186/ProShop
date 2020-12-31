@@ -22,3 +22,6 @@
 20. package.json in root -> under start insert 'server': 'nodemon backend/server'->check type 'npm run server'
 21. package.json in root under server -> 'client': 'npm start --prefix front'-> check type 'npm run client'
 22. To run both backend and frontend server at same time-> below client-> 'dev': 'concurrently \'npm run server\' \'npm run client\''-> check type ->npm run dev
+23. Install dotenv for environment variables -> 'npm i dotenv'->Go to server.js
+24. Create .env file in root->Add NODE_ENV = development, PORT 5000
+25. Add 'type': 'module' below 'main' in root package.json->to use .js for all files->go to backend server and the const express to import express and ./data/products to ./data/products.js for modules
