@@ -6,6 +6,8 @@
   process.exit(1)}
   5. Set export default connectDB
   6. Import to server.js
+  7. add ${conn.connection.host}.cyan.underline
+  8. add ${error.message}.red.underline.bold
 */
 import mongoose from 'mongoose'
 
@@ -17,9 +19,9 @@ const connectDB = async () => {
       useCreateIndex: true,
     })
 
-    console.log(`MongoDB Connected: ${conn.connection.host}`)
+    console.log(`MongoDB Connected: ${conn.connection.host}`.cyan.underline)
   } catch (error) {
-    console.error(`Error: ${error.message}`)
+    console.error(`Error: ${error.message}`.red.underline.bold)
     process.exit(1)
   }
 }
