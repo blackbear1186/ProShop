@@ -12,13 +12,34 @@
   11. Replace h3 with Product tag and product={product} from map array
   12. Coming From Product -> add key={product._id} after Col
   13. Go to index.css
+  14. From installing axios -> To connect backend to frontend Delete 'import products from'
+  15. Add useState -> import React, {useState, useEffect} from 'react'
+  16. In function set const [products, setProducts] = useState([])
+  17. Declare useEffect(()=> { const fetchProducts = async () => {
+    const {data} = await axios.get('/api/products') setProducts(data)
+  } fetchProducts() }, [])
+  18. Import axios from axios
+  19. Create proxy server in package.json frontend
+  20. Do the same thing in ProductScreen
 */
-import React from 'react'
+import React, {useState, useEffect } from 'react'
 import { Row, Col } from 'react-bootstrap'
 import Product from '../components/Product'
-import products from '../products'
+import axios from 'axios'
 
 const HomeScreen = () => {
+
+  const [products, setProducts] = useState([])
+  // create fetchProducts function within useEffect
+  useEffect(() => {
+    const fetchProducts = async () => {
+      // Destructure would be res but it data
+      const {data} = await axios.get('/api/products')
+      setProducts(data)
+    }
+    fetchProducts()
+  }, [])
+
   return (
     <>
       <h2>Latest Products</h2>

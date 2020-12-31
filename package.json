@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/blackbear1186/Proshop#readme",
   "dependencies": {
+    "axiom": "^0.1.6",
     "express": "^4.17.1"
   }
 }

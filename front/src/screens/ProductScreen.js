@@ -20,20 +20,30 @@
   19. Copy paste ListGroup and change Price to Status
   20. Inside second <Col> {product.countInStock greater than 0 ? 'In Stock' else 'Out of Stock'}
   21. New <ListGroup.Item> -> <Button className='btn-block' type='button' disabled={product.countInStock === 0} -> Add To Cart
-  22.
-
+  22. Add useState and useEffect to React from 'react'
+  23. Add same useState and useEffect from HomeScreen
+  24. Make fetchProducts & setProduct singular
+  25. Import axios
+  26. Check Network->XHR->Name->Response
 */
-import React from 'react'
+import React, {useState, useEffect}from 'react'
 import {Link, useParams} from 'react-router-dom'
 import {Row, Col, Image, ListGroup, Card, Button} from 'react-bootstrap'
 import Rating from '../components/Rating'
-import products from '../products'
+import axios from 'axios'
 
 const ProductScreen = () => {
-  let {id} = useParams();
+  const {id} = useParams()
+  const [product, setProduct] = useState({})
 
-  const product = products.find(p => p._id === id)
-  // const product = products.find(p => p._id === match.params.id)
+  useEffect(() => {
+    const fetchProduct = async () => {
+      // Destructure would be res but it data
+      const {data} = await axios.get(`/api/products/${id}`)
+      setProduct(data)
+    }
+    fetchProduct()
+  }, [])
   
   return (
     <>

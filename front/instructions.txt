@@ -13,3 +13,8 @@
 11. Create server.js in backend folder
 12. Create data folder in backend
 13. Copy and paste products.js into data folder
+14. Add and go into zsh terminal
+15. Inside Shop->front -> npm i axios
+16. Go to HomeScreen.js
+17. Add proxy to package.json in frontend below 'name' then restart server # Now products come from backend
+18. In Network->XHR->products->Response is proof
