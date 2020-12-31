@@ -15,15 +15,21 @@
   13. After 'type': 'module' in package.json-> Change all require to import express from 'express'
   14. Go to products.js and change to export default products
   15. Add .js to all imported files
+  16. Import connectDB from './config/db.js'
 */
 
 import express from 'express'
 import dotenv from 'dotenv'
 import products from './data/products.js'
+import connectDB from './config/db.js'
 
 const app = express()
 
 dotenv.config();
+
+connectDB()
+
+const dev = process.env.NODE_ENV
 
 app.get('/', (req, res) => {
   res.send('Api running......')
@@ -41,3 +47,4 @@ app.get('/api/products/:id', (req, res) => {
 const PORT = process.env.PORT || 5000
 
 app.listen(PORT, console.log(`Server is running in ${process.env.NODE_ENV} mode on port ${PORT}`))
+

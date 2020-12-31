@@ -25,3 +25,6 @@
 23. Install dotenv for environment variables -> 'npm i dotenv'->Go to server.js
 24. Create .env file in root->Add NODE_ENV = development, PORT 5000
 25. Add 'type': 'module' below 'main' in root package.json->to use .js for all files->go to backend server and the const express to import express and ./data/products to ./data/products.js for modules
+26. Mongodb create new project->create cluster->add database acess->add network access->copy & paste code for mongodb compass->copy & paste code for mongo uri
+27. Install mongoose-> npm i mongoose in root
+28. Create db.js in backend->config folder
