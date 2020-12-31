@@ -25,6 +25,7 @@
   24. Make fetchProducts & setProduct singular
   25. Import axios
   26. Check Network->XHR->Name->Response
+  27. Put 'id' into square brackets at back of useEffect function
 */
 import React, {useState, useEffect}from 'react'
 import {Link, useParams} from 'react-router-dom'
@@ -43,7 +44,7 @@ const ProductScreen = () => {
       setProduct(data)
     }
     fetchProduct()
-  }, [])
+  }, [id])
   
   return (
     <>

@@ -18,3 +18,7 @@
 16. Go to HomeScreen.js
 17. Add proxy to package.json in frontend below 'name' then restart server # Now products come from backend
 18. In Network->XHR->products->Response is proof
+19. Root folder install nodemon as dev dependency-> npm i -D nodemon concurrently
+20. package.json in root -> under start insert 'server': 'nodemon backend/server'->check type 'npm run server'
+21. package.json in root under server -> 'client': 'npm start --prefix front'-> check type 'npm run client'
+22. To run both backend and frontend server at same time-> below client-> 'dev': 'concurrently \'npm run server\' \'npm run client\''-> check type ->npm run dev

@@ -17,7 +17,7 @@ const products = require('./data/products')
 const app = express()
 
 app.get('/', (req, res) => {
-  res.send('Api running....')
+  res.send('Api running......')
 })
 // create json api from products.js and get on site
 app.get('/api/products', (req, res) => {
