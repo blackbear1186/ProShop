@@ -28,3 +28,4 @@
 26. Mongodb create new project->create cluster->add database acess->add network access->copy & paste code for mongodb compass->copy & paste code for mongo uri
 27. Install mongoose-> npm i mongoose in root
 28. Create db.js in backend->config folder
+29. Create models folder->userModel.js, productModel.js, orderModel.js
