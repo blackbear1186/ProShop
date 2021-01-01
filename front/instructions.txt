@@ -32,3 +32,5 @@
 30. Go to product.js and remove id's
 31. Create users.js in data folder
 32. Install npm i bcryptjs
+33. Create seeder.js folder in backend
+34. Create routes folder-> productRoutes.js in backend

@@ -22,9 +22,10 @@
 
 import express from 'express'
 import dotenv from 'dotenv'
-import products from './data/products.js'
 import connectDB from './config/db.js'
 import colors from 'colors'
+
+import productRoutes from './routes/productRoutes.js'
 
 const app = express()
 
@@ -32,20 +33,12 @@ dotenv.config();
 
 connectDB()
 
-const dev = process.env.NODE_ENV
 
 app.get('/', (req, res) => {
   res.send('Api running......')
 })
-// create json api from products.js and get on site
-app.get('/api/products', (req, res) => {
-  res.json(products)
-})
-// create route to get single product by id
-app.get('/api/products/:id', (req, res) => {
-  const product = products.find((p) => p._id === req.params.id)
-  res.json(product)
-})
+
+app.use('/api/products', productRoutes)
 
 const PORT = process.env.PORT || 5000
 
