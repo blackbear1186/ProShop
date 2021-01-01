@@ -29,3 +29,6 @@
 27. Install mongoose-> npm i mongoose in root
 28. Create db.js in backend->config folder
 29. Create models folder->userModel.js, productModel.js, orderModel.js
+30. Go to product.js and remove id's
+31. Create users.js in data folder
+32. Install npm i bcryptjs
