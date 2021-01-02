@@ -18,6 +18,10 @@
   16. Import connectDB from './config/db.js'
   17. Import colors from 'colors'
   18. add ${PORT}.yellow.bold
+  19. Move app.get products & products:id to productRoutes
+  20. Import productRoutes
+  21. Use app.use to mount productRoutes
+  22. Delete products.js file
 */
 
 import express from 'express'
