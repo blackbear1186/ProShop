@@ -22,12 +22,17 @@
   20. Import productRoutes
   21. Use app.use to mount productRoutes
   22. Delete products.js file
+  23. Add error middleware-> app.use 
+  24. Add 404 error with app.use
+  25. Cut middleware & 404 error
+  26. Import notFound, errorHandler
 */
 
 import express from 'express'
 import dotenv from 'dotenv'
 import connectDB from './config/db.js'
 import colors from 'colors'
+import {notFound, errorHandler} from './middleware/errorMiddleware.js'
 
 import productRoutes from './routes/productRoutes.js'
 
@@ -43,6 +48,11 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/products', productRoutes)
+
+app.use(notFound)
+
+// Error middleware
+app.use(errorHandler)
 
 const PORT = process.env.PORT || 5000
 

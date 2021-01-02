@@ -11,6 +11,7 @@
   10. Import AsyncHandler from express-async-handler
   11. Wrap asyc function with AsyncHandler
   12. Use Product.findById function for routre that get's single product by id
+  13. Add throw new error to second function
 */
 
 import express from 'express'
@@ -24,24 +25,31 @@ const router = express.Router()
 // @route   GET /api/products
 // @access   Public
 
-router.get('/', AsyncHandler(async (req, res) => {
-  const products = await Product.find({})
-  res.json(products)
-}))
+router.get(
+  '/',
+  AsyncHandler(async (req, res) => {
+    const products = await Product.find({})
+    res.json(products)
+  })
+)
 
 // create route to get single product by id
 // @desc    Fetch single products
 // @route   GET /api/products
 // @access   Public
-router.get('/:id', AsyncHandler(async(req, res) => {
-  const product = await Product.findById(req.params.id)
+router.get(
+  '/:id',
+  AsyncHandler(async (req, res) => {
+    const product = await Product.findById(req.params.id)
 
-  if(product){
-  res.json(product)
-  }
-  else {
-    res.status(404).json({message: 'Product not found'})
-  }
-}))
+    if (product) {
+      res.json(product)
+    } 
+    else {
+      res.status(404)
+      throw new Error('Product not found')
+    }
+  })
+)
 
 export default router
