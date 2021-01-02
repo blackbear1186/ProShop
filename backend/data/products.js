@@ -6,6 +6,7 @@
 const products = [
 
   {
+    
     name: 'Airpods Wireless Bluetooth Headphones', 
     image: '/images/airpods.jpg',
     description:
@@ -54,7 +55,6 @@ const products = [
       numReviews: 2,
   },
   {
-    _id: '5',
     name: 'iPhone 11 Pro 256GB Memory', 
     image: '/images/phone.jpg',
     description:
