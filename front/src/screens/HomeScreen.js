@@ -21,38 +21,52 @@
   18. Import axios from axios
   19. Create proxy server in package.json frontend
   20. Do the same thing in ProductScreen
+  21. Bring in Redux ->Delete axios
+  22. Delete useEffect function data, const [products, setProducts], useState
+  23. Import useDispatch, useSelector
+  24. Import listProducts
+  25. Set const dispatch equal to useDispatch()
+  26. Pass listProducts() into dispatch in useEffect()
+  27. Set productList equal to useSelector with state param function
+  28. Set const {loading, error, products} equal to product list
+  29. Check if loading under <h1></h1>
 */
-import React, {useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col } from 'react-bootstrap'
 import Product from '../components/Product'
-import axios from 'axios'
+import { listProducts } from '../actions/productActions'
 
 const HomeScreen = () => {
+  const dispatch = useDispatch()
 
-  const [products, setProducts] = useState([])
+  const productList = useSelector((state) => state.productList)
+
+  const { loading, error, products } = productList
   // create fetchProducts function within useEffect
   useEffect(() => {
-    const fetchProducts = async () => {
-      // Destructure would be res but it data
-      const {data} = await axios.get('/api/products')
-      setProducts(data)
-    }
-    fetchProducts()
-  }, [])
+    dispatch(listProducts())
+  }, [dispatch])
+
 
   return (
     <>
-      <h2>Latest Products</h2>
-      <Row>
-        {products.map(product => (
-          <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
-            <Product product={product}/>
-          </Col>
-        ))}
-      </Row>
+      <h1>Latest Products</h1>
+      {loading ? (
+        <h2>Loading...</h2>
+      ) : error ? (
+        <h3>{error}</h3>
+      ) : (
+        <Row>
+          {products.map((product) => (
+            <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+              <Product product={product} />
+            </Col>
+          ))}
+        </Row>
+      )}
     </>
   )
 }
 
 export default HomeScreen
-
