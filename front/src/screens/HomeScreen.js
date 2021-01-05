@@ -30,11 +30,16 @@
   27. Set productList equal to useSelector with state param function
   28. Set const {loading, error, products} equal to product list
   29. Check if loading under <h1></h1>
+  30. Import Loader and Message files
+  31. Replace h2 with Loader tag
+  32. Replace h3 with Message tag
 */
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col } from 'react-bootstrap'
 import Product from '../components/Product'
+import Loader from '../components/Loader'
+import Message from '../components/Loader'
 import { listProducts } from '../actions/productActions'
 
 const HomeScreen = () => {
@@ -53,9 +58,9 @@ const HomeScreen = () => {
     <>
       <h1>Latest Products</h1>
       {loading ? (
-        <h2>Loading...</h2>
+        <Loader/>
       ) : error ? (
-        <h3>{error}</h3>
+        <Message variant='danger'>{error}</Message>
       ) : (
         <Row>
           {products.map((product) => (
